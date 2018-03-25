@@ -1,3 +1,3 @@
 FROM debian
-RUN apt-get update -y && apt-get install gnuplot
+RUN apt-get update -y && apt-get install -y gnuplot
 ADD . /
