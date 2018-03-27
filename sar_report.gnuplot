@@ -1,7 +1,7 @@
 unset output
 set terminal dumb
 set output "/tmp/output.ascii"
-set term dumb size 200, 120
+set term dumb size cols, rows
 set origin 0,0
 set multiplot
 set size 1,0.4

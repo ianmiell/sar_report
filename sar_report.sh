@@ -5,7 +5,9 @@
 # http://aionica.computerlink.ro/2011/02/visualize-sar-reports-with-awk-and-gnuplot/
 
 set -eu
+
 DAY=$(date +%d)
+
 rm -f sarout
 touch sarout
 for i in -u -r -q -w -W -b
@@ -14,7 +16,6 @@ do
 	echo "===========" >> sarout
 done
 cat sarout | awk -f sar_report.awk > /tmp/input
-cat /tmp/input
-gnuplot sar_report.gnuplot
+gnuplot -e "cols=${COLUMNS}; rows=${LINES}" sar_report.gnuplot
 cat /tmp/output.ascii
 rm -f sarout
