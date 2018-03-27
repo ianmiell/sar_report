@@ -1,1 +1,1 @@
-docker run -ti -v /var/log/sysstat:/var/log/sysstat imiell/sar_report
+docker run -v /var/log/sysstat:/var/log/sysstat imiell/sar_report
