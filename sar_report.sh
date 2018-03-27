@@ -6,13 +6,11 @@
 
 set -eu
 
-DAY=$(date +%d)
-
 rm -f sarout
 touch sarout
 for i in -u -r -q -w -W -b
 do
-	LC_TIME="en_US.UTF-8" sar -f /var/log/sysstat/sa${DAY} $i | tail -n +4 | head -n -1 >> sarout
+	LC_TIME="en_US.UTF-8" sar -f /var/log/sysstat/sa${SAR_REPORT_DAY} $i | tail -n +4 | head -n -1 >> sarout
 	echo "===========" >> sarout
 done
 cat sarout | awk -f sar_report.awk > /tmp/input
