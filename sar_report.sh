@@ -6,14 +6,20 @@
 
 set -eu
 
-echo "SAR REPORT GRAPHS FOR DAY: ${SAR_REPORT_DAY}"
+SAR_REPORT_DAY=${SAR_REPORT_DAY:-$(date +%d)}
+LINES=${LINES:-$(stty size | awk '{print $1}')}
+COLUMNS=${COLUMNS:-$(stty size | awk '{print $NF}')}
+TERM=${TERM:-xterm}
+
+rm -f sarout
 if [[ ${SAR_REPORT_DEBUG:-''} != '' ]]
 then
 	env
 	set -x
 fi
 
-rm -f sarout
+echo "SAR REPORT GRAPHS FOR DAY: ${SAR_REPORT_DAY}"
+
 touch sarout
 for i in -u -r -q -w -W -b
 do
