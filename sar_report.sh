@@ -6,6 +6,12 @@
 
 set -eu
 
+echo "SAR REPORT GRAPHS FOR DAY: ${SAR_REPORT_DAY}"
+if [[ ${SAR_REPORT_DEBUG:-''} != '' ]]
+then
+	set -x
+fi
+
 rm -f sarout
 touch sarout
 for i in -u -r -q -w -W -b
