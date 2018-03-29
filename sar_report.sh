@@ -9,6 +9,7 @@ set -eu
 echo "SAR REPORT GRAPHS FOR DAY: ${SAR_REPORT_DAY}"
 if [[ ${SAR_REPORT_DEBUG:-''} != '' ]]
 then
+	env
 	set -x
 fi
 
